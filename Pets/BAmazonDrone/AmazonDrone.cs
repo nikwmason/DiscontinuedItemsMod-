@@ -7,9 +7,14 @@ namespace DiscontinuedItemsMod.Pets.BAmazonDrone
 {
     public class AmazonDrone : ModProjectile
     {
+        private int frameCounter = 0;
+        private int frame = 0;
+        private const int AnimationSpeed = 6;
+        private const int FrameCount = 4;
+
         public override void SetStaticDefaults()
         {
-            Main.projFrames[Projectile.type] = 1;
+            Main.projFrames[Projectile.type] = FrameCount;
             Main.projPet[Projectile.type] = true;
         }
 
@@ -17,6 +22,9 @@ namespace DiscontinuedItemsMod.Pets.BAmazonDrone
         {
             Projectile.CloneDefaults(ProjectileID.BabyDino);
             AIType = ProjectileID.BabyDino;
+
+            Projectile.width = 32;
+            Projectile.length = 32;
         }
 
         public override bool PreAI()
@@ -33,6 +41,24 @@ namespace DiscontinuedItemsMod.Pets.BAmazonDrone
             {
                 Projectile.timeLeft = 2;
             }
+
+            AnimateDrone();
+        }
+        private void AnimateDrone()
+        {
+            frameCounter++;
+            if (frameCounter >= AnimationSpeed)
+            {
+                frameCounter = 0;
+                frame = (frame + 1) % FrameCount; //Cycles thru 1,2,3,4
+            }
+            
+            Projectile.frame = frame;
+        }
+
+        public override bool PreDraw(ref Color lightColor)
+        {
+            return true;
         }
     }
 }
