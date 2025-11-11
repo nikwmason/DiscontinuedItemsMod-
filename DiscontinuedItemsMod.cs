@@ -9,12 +9,7 @@ namespace DiscontinuedItemsMod
     {
         public DiscontinuedItemsMod()
         {
-            Properties = new ModProperties()
-            {
-                Autoload = true,
-                AutoloadGores = true,
-                AutoloadSounds = true
-            };
+        
         }
     }
 

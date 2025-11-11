@@ -1,0 +1,42 @@
+Mods: {
+	DiscontinuedItemsMod: {
+		Items: {
+			IceMourne: {
+				DisplayName: Ice Mourne
+				Tooltip:
+					'''
+					Freezes enemies with the power of eternal winter
+					Has a chance to shoot frost bolts
+					'''
+			}
+
+			SoulScythe: {
+				DisplayName: Soul Scythe
+				Tooltip:
+					'''
+					Harvests the souls of your enemies
+					Critical hits steal life
+					Occasionally releases lost souls
+					'''
+			}
+
+			MysteriousPackage: {
+				DisplayName: Mysterious Package
+				Tooltip: Summons a delivery drone to follow you
+			}
+		}
+
+		Buffs: {
+			DroneBuff: {
+				DisplayName: Delivery Drone
+				Description: A mysterious package delivery drone follows you
+			}
+		}
+
+		Projectiles: {
+			AmazonDrone: {
+				DisplayName: Delivery Drone
+			}
+		}
+	}
+}

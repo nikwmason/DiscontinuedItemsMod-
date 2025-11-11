@@ -1,31 +1,34 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
 namespace DiscontinuedItemsMod.Projectiles.PAmazonDrone
 {
-    public class PetName : ModProjectile
+    public class AmazonDrone : ModProjectile
     {
+        public override void SetStaticDefaults()
+        {
+            Main.projFrames[Projectile.type] = 1;
+            Main.projPet[Projectile.type] = true;
+        }
+
         public override void SetDefaults()
         {
-            projectile.CloneDefaults(ProjectileID.ZephyrFish);
-            projectile.name = "Pet Drone";
-            aiType = ProjectileID.ZephyrFish;
-            Main.projFrames[projectile.type] = 4;
-            Main.projPet[projectile.type] = true;
+            Projectiles.CloneDefaults(ProjectileID.BabyDino);
+            AIType = ProjectileID.BabyDino;
         }
 
         public override bool PreAI()
         {
-            Player player = Main.player[projectile.owner];
-            player.zephyrfish = false;
+            Player player = Main.player[Projectile.owner];
+            player.babyDino = false;
             return true;
         }
 
         public override void AI()
         {
-            Player player = Main.player[projectile.owner];
+            Player player = Main.player[Projectile.owner];
 			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
             
             if (player.dead)

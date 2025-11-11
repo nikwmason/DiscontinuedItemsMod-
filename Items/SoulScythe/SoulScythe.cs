@@ -4,7 +4,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.DataStructures;
 
-namespace DiscontinuedItemsMod.Items.SoulScythe1
+namespace DiscontinuedItemsMod.Items.SoulScythe
 {
     public class SoulScythe : ModItem
     {
@@ -16,14 +16,14 @@ namespace DiscontinuedItemsMod.Items.SoulScythe1
             Item.useAnimation = 25;
             Item.useStyle = ItemUseStyleID.Swing;
             Item.autoReuse = true;
-            Item.UseSound = SoundID.Item71; //Scythe sound
+            Item.UseSound = SoundID.Item71;
             
             Item.damage = 58;
             Item.knockBack = 7f;
             Item.DamageType = DamageClass.Melee;
-            Item.crit = 8; // 8% extra crit chance
+            Item.crit = 8; 
             
-            Item.value = Item.buyPrice(0, 8, 0, 0); // 8 gold
+            Item.value = Item.buyPrice(0, 8, 0, 0);
             Item.rare = ItemRarityID.Lime;
         }
 
@@ -42,7 +42,6 @@ namespace DiscontinuedItemsMod.Items.SoulScythe1
         {
             if (Main.rand.NextBool(2))
             {
-                // Purple soul particles
                 int dust = Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, 
                     DustID.Shadowflame, 0f, 0f, 150, default, 1.5f);
                 Main.dust[dust].noGravity = true;
@@ -52,10 +51,7 @@ namespace DiscontinuedItemsMod.Items.SoulScythe1
 
         public override void OnHitNPC(Player player, NPC target, NPC.HitInfo hit, int damageDone)
         {
-            // Shadowflame debuff
             target.AddBuff(BuffID.ShadowFlame, 180);
-            
-            // Life steal on critical hits (10% of damage dealt)
             if (hit.Crit)
             {
                 int healAmount = (int)(damageDone * 0.1f);
@@ -69,8 +65,7 @@ namespace DiscontinuedItemsMod.Items.SoulScythe1
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            // 40% chance to shoot soul projectiles
-            if (Main.rand.NextBool(5, 2)) // 2 in 5 chance = 40%
+            if (Main.rand.NextBool(5, 2))
             {
                 for (int i = 0; i < 2; i++)
                 {
