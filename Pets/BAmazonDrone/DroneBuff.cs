@@ -1,5 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace DiscontinuedItemsMod.Pets.BAmazonDrone
 {
@@ -14,13 +16,11 @@ namespace DiscontinuedItemsMod.Pets.BAmazonDrone
 		public override void Update(Player player, ref int buffIndex)
 		{
 			player.buffTime[buffIndex] = 18000;
-			player.GetModPlayer<MyPlayer>().Pet = true;	
-
-			bool petProjectileNotSpawned = player.ownedProjectileCounts[mod.ProjectileType("AmazonDrone")] <= 0;
+			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.PAmazonDrone.AmazonDrone>()] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{
-				Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.Center,
-					Microsoft.Xna.Framework.Vector2.Zero, ModContent.ProjectType<AmazonDrone>(), 0, 0f, player.whoAmI);
+				Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.Center, Microsoft.Xna.Framework.Vector2.Zero,
+					ModContent.ProjectileType<Projectiles.PAmazonDrone.AmazonDrone>(), 0, 0f, player.whoAmI);
 			}
 		}
 	}

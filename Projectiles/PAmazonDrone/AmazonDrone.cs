@@ -1,7 +1,9 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System.Buffers;
 
 namespace DiscontinuedItemsMod.Projectiles.PAmazonDrone
 {
@@ -22,22 +24,16 @@ namespace DiscontinuedItemsMod.Projectiles.PAmazonDrone
         public override bool PreAI()
         {
             Player player = Main.player[Projectile.owner];
-            player.babyDino = false;
+            player.dino = false;
             return true;
         }
 
         public override void AI()
         {
             Player player = Main.player[Projectile.owner];
-			MyPlayer modPlayer = player.GetModPlayer<MyPlayer>(mod);
-            
-            if (player.dead)
+            if (!player.dead && player.HasBuff(ModContent.BuffType<Buffs.DroneBuff>()))
             {
-				modPlayer.Pet = false;
-            }
-            if (modPlayer.Pet)
-            {
-                projectile.timeLeft = 2;
+                Projectile.timeLeft = 2;
             }
         }
     }

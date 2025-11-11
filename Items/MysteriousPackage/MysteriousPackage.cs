@@ -2,6 +2,8 @@ using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.GameContent.Creative;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace DiscontinuedItemsMod.Items.MysteriousPackage
 {
@@ -15,7 +17,8 @@ namespace DiscontinuedItemsMod.Items.MysteriousPackage
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.ZephyrFish);
-            Item.shoot = ModContent.ProjectileType<Pets.PAmazonDrone.AmazonDrone>();
+            Item.shoot = ModContent.ProjectileType<Projectiles.PAmazonDrone.AmazonDrone>();
+            
             Item.buffType = ModContent.BuffType<Pets.BAmazonDrone.DroneBuff>();
             
             Item.width = 32;
