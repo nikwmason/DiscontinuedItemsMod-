@@ -12,7 +12,7 @@ namespace DiscontinuedItemsMod.Pets.BAmazonDrone
         {
             Main.projFrames[Projectile.type] = 4;
             Main.projPet[Projectile.type] = true;
-            Main.projPetLight[Projectile.type] = false;
+            
         }
 
         public override void SetDefaults()
