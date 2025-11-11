@@ -1,0 +1,25 @@
+# Build results
+bin/
+obj/
+*.dll
+*.pdb
+
+# Visual Studio / Rider
+.vs/
+.vscode/
+.idea/
+*.csproj
+*.user
+*.suo
+*.cache
+
+# tModLoader
+*.tmod
+*.tmod.bak
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
