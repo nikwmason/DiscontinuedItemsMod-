@@ -17,10 +17,8 @@ namespace DiscontinuedItemsMod.Items.MysteriousPackage
         public override void SetDefaults()
         {
             Item.CloneDefaults(ItemID.ZephyrFish);
-            Item.shoot = ModContent.ProjectileType<Projectiles.PAmazonDrone.AmazonDrone>();
-            
+            Item.shoot = ModContent.ProjectileType<Pets.BAmazonDrone.AmazonDrone>();
             Item.buffType = ModContent.BuffType<Pets.BAmazonDrone.DroneBuff>();
-            
             Item.width = 32;
             Item.height = 32;
             Item.value = Item.buyPrice(0, 5, 0, 0);
