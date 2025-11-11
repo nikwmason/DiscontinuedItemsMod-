@@ -16,11 +16,11 @@ namespace DiscontinuedItemsMod.Pets.BAmazonDrone
 		public override void Update(Player player, ref int buffIndex)
 		{
 			player.buffTime[buffIndex] = 18000;
-			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<Projectiles.PAmazonDrone.AmazonDrone>()] <= 0;
+			bool petProjectileNotSpawned = player.ownedProjectileCounts[ModContent.ProjectileType<Pets.BAmazonDrone.AmazonDrone>()] <= 0;
 			if (petProjectileNotSpawned && player.whoAmI == Main.myPlayer)
 			{
 				Projectile.NewProjectile(player.GetSource_Buff(buffIndex), player.Center, Microsoft.Xna.Framework.Vector2.Zero,
-					ModContent.ProjectileType<Projectiles.PAmazonDrone.AmazonDrone>(), 0, 0f, player.whoAmI);
+					ModContent.ProjectileType<Pets.BAmazonDrone.AmazonDrone>(), 0, 0f, player.whoAmI);
 			}
 		}
 	}

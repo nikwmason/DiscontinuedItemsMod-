@@ -33,10 +33,6 @@ Mods: {
 			}
 		}
 
-		Projectiles: {
-			AmazonDrone: {
-				DisplayName: Delivery Drone
-			}
-		}
+		Projectiles.AmazonDrone.DisplayName: Delivery Drone
 	}
 }
